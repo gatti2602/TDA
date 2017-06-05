@@ -1,0 +1,14 @@
+:directories:
+  - .git
+  - .idea
+  - data
+  - out
+:files:
+  - .DS_Store
+  - .code2pdf
+  - .gitignore
+  - database.yml
+  - favicon.ico
+  - README.md
+  - TDATP1.iml
+  - tp1-informe.pdf
