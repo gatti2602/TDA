@@ -31,24 +31,22 @@ public class Grafo {
         return cantidadDeVertices;
     }
 
+    public List<Arista> getAristas() {
+        return this.aristas;
+    }
+
     /**
      * Devuelve una arista del grafo de manera aleatoria
      */
-    public Arista getAristas() {
+    public Arista getAristaAleatoria() {
         Integer numeroArista = new Random().nextInt(this.cantidadDeVertices);
         return this.aristas.get(numeroArista);
     }
 
     /**
-     * Agrega una Arista al grafo, si los nodos están dentro de la cantidad de vértices
+     * Agrega una Arista al grafo.
      */
-    public void agregarArista(int nodoInicio, int nodoFin) {
-
-        if (nodoInicio < 0 || nodoInicio >= this.cantidadDeVertices
-                || nodoFin < 0 || nodoFin >= this.cantidadDeVertices) {
-            return;
-        }
-
+    public void agregarArista(String nodoInicio, String nodoFin) {
         Arista nuevaArista = new Arista(nodoInicio, nodoFin, 0);
         this.aristas.add(nuevaArista);
     }

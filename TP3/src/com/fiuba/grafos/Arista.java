@@ -7,20 +7,21 @@ package com.fiuba.grafos;
  */
 public class Arista {
 
-    private Integer src, dst, peso;
+    private String inicio, fin;
+    private int peso;
 
-    Arista(Integer src, Integer dst, Integer peso) {
-        this.src = src;
-        this.dst = dst;
+    Arista(String inicio, String fin, int peso) {
+        this.inicio = inicio;
+        this.fin = fin;
         this.peso = peso;
     }
 
-    public Integer getSrc() {
-        return this.src;
+    public String getInicio() {
+        return this.inicio;
     }
 
-    public Integer getDst() {
-        return this.dst;
+    public String getFin() {
+        return this.fin;
     }
 
     public Integer getPeso() {

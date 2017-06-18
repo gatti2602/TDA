@@ -37,10 +37,10 @@ public class Main {
     }
 
     public static void resolveKarger(Grafo grafo) {
-        Karger algoritmo = new Karger(grafo);
+        Karger algoritmo = new Karger();
 
         long tiempoDeInicio = System.nanoTime();
-        algoritmo.getCorteMinimo();
+        algoritmo.getCorteMinimo(grafo);
         long tiempoDelAlgoritmo = System.nanoTime() - tiempoDeInicio;
 
         System.out.println(

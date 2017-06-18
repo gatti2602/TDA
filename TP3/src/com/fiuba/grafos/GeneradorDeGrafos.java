@@ -14,8 +14,8 @@ public class GeneradorDeGrafos {
         // Primero convertimos el grafo en conexo
         // (existe un camino entre cualquier par de nodos)
         // (conecto a todos los vértices entre si)
-        for (int i = 0; i < numeroDeVertices - 1; i++) {
-            grafo.agregarArista(i, i + 1);
+        for (Integer i = 0; i < numeroDeVertices - 1; i++) {
+            grafo.agregarArista(i.toString(), new Integer(i + 1).toString());
             numeroDeAristas--;
         }
 
@@ -23,9 +23,9 @@ public class GeneradorDeGrafos {
         // hasta llegar a las 2*n aristas
         Random random = new Random();
         while (numeroDeAristas > 0) {
-            int nodoInicio = random.nextInt(numeroDeVertices);
-            int nodoFin = random.nextInt(numeroDeVertices);
-            grafo.agregarArista(nodoInicio, nodoFin);
+            Integer nodoInicio = random.nextInt(numeroDeVertices);
+            Integer nodoFin = random.nextInt(numeroDeVertices);
+            grafo.agregarArista(nodoInicio.toString(), nodoFin.toString());
             numeroDeAristas--;
         }
 
