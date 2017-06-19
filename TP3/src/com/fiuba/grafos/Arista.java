@@ -27,4 +27,9 @@ public class Arista {
     public Integer getPeso() {
         return this.peso;
     }
+
+    @Override
+    public String toString() {
+        return "{" + this.inicio + ", " + this.fin + "}";
+    }
 }
