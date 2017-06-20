@@ -3,7 +3,7 @@ package com.fiuba.algoritmos;
 import com.fiuba.grafos.Arista;
 import com.fiuba.grafos.Grafo;
 
-import java.util.*;
+import java.util.List;
 
 public class Karger {
 

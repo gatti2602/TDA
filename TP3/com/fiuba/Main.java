@@ -1,6 +1,7 @@
 package com.fiuba;
 
 import com.fiuba.algoritmos.Karger;
+import com.fiuba.algoritmos.MejorDiaAcciones;
 import com.fiuba.algoritmos.ResultadoSubsetSum;
 import com.fiuba.algoritmos.SubSetAprox;
 import com.fiuba.grafos.Arista;
@@ -9,6 +10,7 @@ import com.fiuba.grafos.Grafo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("------------------------------------");
-        System.out.println("\uD83D\uDE80 \uD83D\uDE80 TP1 Teoría de Algoritmos \uD83D\uDE80 \uD83D\uDE80");
+        System.out.println("\uD83D\uDE80 \uD83D\uDE80 TP3 Teoría de Algoritmos \uD83D\uDE80 \uD83D\uDE80");
         System.out.println("------------------------------------");
         System.out.println();
 
@@ -30,16 +32,46 @@ public class Main {
                 System.out.println("-----------");
                 resolveSubsetAprox();
                 break;
-            default:
             case 2:
                 System.out.println("Karger");
                 System.out.println("------");
                 resolveKarger();
                 break;
+            case 3:
+            default:
+                System.out.println("Acciones");
+                System.out.println("--------");
+                resolveAcciones();
+                break;
+
         }
 
         System.out.println();
         System.out.println("\uD83D\uDC7E \uD83D\uDC7E Fin! \uD83D\uDC7E \uD83D\uDC7E");
+    }
+
+    private static void resolveAcciones() {
+        System.out.println("Elige la cantidad de dias a simular");
+        Scanner scanner = new Scanner(System.in);
+
+        int dias = Integer.parseInt(scanner.nextLine());
+        int[] valores = new int[dias];
+        Random rand = new Random();
+
+        for (int i = 0; i < dias; i++)
+            valores[i] = rand.nextInt(1000);
+
+        System.out.println("Simulacion con " + Integer.toString(dias) + " dias:");
+        System.out.println();
+        long tiempoDeInicio = System.nanoTime();
+        MejorDiaAcciones mejorDia = new MejorDiaAcciones(valores);
+        long tiempoDelAlgoritmo = System.nanoTime() - tiempoDeInicio;
+        System.out.println("Mejor Dia de Compra: " + mejorDia.getDiaCompra());
+        System.out.println("Mejor Dia de Venta: " + mejorDia.getDiaVenta());
+        System.out.println("Ganancia: " + mejorDia.getMontoGanancia());
+        System.out.println("Tiempo de Ejecucion: " + TimeUnit.NANOSECONDS.toMillis(tiempoDelAlgoritmo) + " mSeg.");
+
+
     }
 
     public static int elegirAlgoritmo() {
@@ -47,6 +79,7 @@ public class Main {
         System.out.println();
         System.out.println("1. SubsetAprox");
         System.out.println("2. Karger");
+        System.out.println("3. Acciones");
         System.out.println();
 
         Scanner scanner = new Scanner(System.in);
